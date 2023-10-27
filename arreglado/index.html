@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+    </script>
+    <!-- <script src="js/codigo.js"></script> -->
+    <script>
+        var peticion = "SELECT ";
+        var columnas = " * ";
+        var desde = "FROM ";
+        var tabla = "";
+
+        $(document).ready(function(){
+            $("#seleccionatabla").load("cargatablas.php");
+            $("#sql").text(peticion + columnas + desde + tabla);
+            $("#seleccionatabla").change(function () {
+                tabla = $(this).val();
+                $("#sql").text(peticion + columnas + desde + tabla);
+                $("#seleccionacampos").load("cargacampos.php?tabla=" + tabla);
+            })
+
+        })
+
+    </script>
+    <meta charset="UTF-8">
+    <title>BI</title>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="selecciontabla">
+            <p>Selecciona la tabla con la que trabajar</p>
+            <select id="seleccionatabla">
+                <option value="">Selecciona una tabla</option>
+            </select>
+        </div>
+        <div id="seleccioncampos">
+            <p>Selecciona los campos con los que trabajar</p>
+            <select id="seleccionacampos">
+                <option value="">Selecciona un campo</option>
+            </select>
+        </div>
+        <div id="sql"></div>
+    </div>
+</body>
+</html>
