@@ -1,66 +1,71 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
-    
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #b4b2b2;
+    margin: 0;
+    padding: 0;
 }
 
-#contenedor{
+#contenedor {
+   
     padding: 20px;
-    background:rgb(228, 227, 227);
-}
-select{
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-color: #fff;
+    border: 3px solid #1e1c1c;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#selecciontabla, #seleccioncampos {
+    margin-bottom: 20px;
+}
+
+select {
+    width: 75%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+p {
+    margin: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+table th{
+    background: grey;
+    color: white;
+}
 #sql{
-    background: darkcyan;
+    background: black;
     color: white;
     padding: 20px;
     font-family: monospace;
 }
 #seleccionacampos{
     columns: 3;
-    
-}
-table{
-    margin-top: 15px;
+    padding: 20px;
 }
 input[type="checkbox"]{
     padding: 5px;
     margin-top: 5px;
-    margin-right: 5px;
+    margin-bottom: 5px;
 }
+
 table th{
-    background: goldenrod;
-    color: black;
+    background: grey;
+    color:white;
 }
-table tr:nth-child(odd){
-    background: lightsalmon;
-}
-table tr:nth-child(even){
-    background: lightcyan;
+table tr:nth-child{
+    background:rbg(230,230,230);
 }
 table tr td{
     padding: 10px;
 }
-.condicion{
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-#seleccionacondiciones{
-    column-count: 3;
-}
-#seleccionlimite{
-    margin-bottom: 10px;
-}
-input[type="text"],input[type="number"]{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 5px;
-    margin-right: 5px;
-}
+    
+

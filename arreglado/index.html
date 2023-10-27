@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
-    </script>
-     <script src="js/codigo.js"></script>
-     <link rel="stylesheet" href="css/estilo.css">
     <meta charset="UTF-8">
-    <title>BI</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buiness Int</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+        </script>
+    <script src="js/codigo.js"></script>
+  <link rel="stylesheet" href="css/estilo2.css"> 
 </head>
+
 <body>
     <div id="contenedor">
         <div id="selecciontabla">
@@ -20,11 +22,34 @@
         </div>
         <div id="seleccioncampos">
             <p>Selecciona los campos con los que trabajar</p>
-            <select id="seleccionacampos">
-                <option value="">Selecciona un campo</option>
-            </select>
+            <div id="seleccionacampos">
+
+            </div>
+
+        </div>
+        <div id="seleccionalias">
+            <p>Selecciona un alias</p>
+            <div id="seleccionaalias">
+
+            </div>
+
+        </div>
+        <div id="seleccioncondiciones">
+            <p>Selecciona los campos con condiciones</p>
+            <div id="seleccionacondiciones">
+
+            </div>
+
+        </div>
+        <div id="seleccionlimite">
+            <p>Selecciona los campos con un limite</p>
+            <input type="number" id="limite">
+
         </div>
         <div id="sql"></div>
+        <div id="resultadostabla"></div>
+        <div id="resultadosgrafica"></div>
     </div>
 </body>
+
 </html>
