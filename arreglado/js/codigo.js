@@ -13,11 +13,24 @@ $(document).ready(function(){
         $("#seleccionacampos").load("php/cargacampos.php?tabla=" + tabla);
     })
     $("#seleccionacampos").change(function(){
-        columnas = $(this).val()
+        seleccionado = []
+        $('input[name="seleccionacampos"]').each(function(){
+            if ($(this).is(":checked")){
+                seleccionado.push($(this).val());
+            }
+        });
+        console.table(seleccionado)
+        columnas = "";
+        for (var i = 0; i < seleccionado.length; i++) {
+            columnas += seleccionado[i]+",";
+   
+        }
+        
+        columnas = columnas.slice(0, -1);
         resultadostabla()
     })
-
-})
+    
+    })
 
 function resultadostabla(){
     if(tabla){
