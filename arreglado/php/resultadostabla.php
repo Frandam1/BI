@@ -1,37 +1,29 @@
 <?php
-
 $mysqli = new mysqli("localhost", "registros", "registros", "registros");
-$sql = $mysqli->real_escape_string($_GET["sql"]);
-$result = $mysqli->query($sql);
 
-if ($result) {
-    $contador = $result->num_rows;
 
-    echo '<p>La búsqueda ha devuelto ' . $contador . ' resultados</p>';
-
-    echo '<table cellpadding="0" cellspacing="0" width="100%">';
-    
-    $row = $result->fetch_assoc();
-    if ($row) {
-        echo '<tr>';
-        foreach ($row as $campo => $valor) {
-            echo '<th>' . $campo . '</th>';
-        }
-        echo '</tr>';
+$sql = $_GET['sql']." LIMIT 1";
+$result = $mysqli -> query($sql);
+while ($row = $result -> fetch_assoc()) {
+    echo '<tr>';
+    foreach($row as $campo => $valor) {
+        echo '<th>'.$campo.'</th>';
     }
-
-    while ($row = $result->fetch_assoc()) {
-        echo '<tr>';
-        foreach ($row as $valor) {
-            echo '<td>' . $valor . '</td>';
-        }
-        echo '</tr>';
-    }
-
-    echo '</table>';
-} else {
-    echo '<p>Error en la consulta: ' . $mysqli->error . '</p>';
+    echo '</tr>';
 }
 
-$mysqli->close();
+
+
+$sql = $_GET['sql'];
+$result = $mysqli -> query($sql);
+while ($row = $result -> fetch_assoc()) {
+    echo '<tr>';
+    foreach($row as $campo => $valor) {
+        echo '<td>'.$valor.'</td>';
+    }
+    echo '</tr>';
+}
+
+
+
 ?>
