@@ -3,6 +3,7 @@ var columnas = " * ";
 var desde = " FROM ";
 var tabla = "";
 var condiciones = " ";
+var limite = " LIMIT 1000 ";
 
 $(document).ready(function(){
     $("#seleccionatabla").load("php/cargatablas.php");
@@ -44,14 +45,18 @@ $(document).ready(function(){
         condiciones = condiciones.slice(0,-1);
         resultadostabla();
     });
+    $("#limite").change(function(){
+        limite = " LIMIT "+$(this).val()+" ";
+        resultadostabla()
+    })
     
 })
 
 function resultadostabla(){
     if(tabla){
-        $("#sql").text(peticion+columnas+desde+tabla+condiciones)
+        $("#sql").text(peticion+columnas+desde+tabla+condiciones+limite)
         $("#resultadostabla").
-        load("php/resultadostabla.php?sql="+encodeURI(peticion+columnas+desde+tabla+condiciones))
+        load("php/resultadostabla.php?sql="+encodeURI(peticion+columnas+desde+tabla+condiciones+limite))
     } else {
         $("#sql").text("No se ha seleccionado una tabla.");
         $("#resultadostabla").empty(); // Limpia el contenido
