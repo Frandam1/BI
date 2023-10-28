@@ -21,7 +21,7 @@ $(document).ready(function(){
             }
         });
         console.table(seleccionado)
-        
+
         columnas = "";
         for (var i = 0; i < seleccionado.length; i++) {
             columnas += seleccionado[i]+" ";
@@ -57,6 +57,28 @@ $(document).ready(function(){
         condiciones = condiciones.slice(0,-1);
         resultadostabla();
     });
+
+    $(document).on("keyup",".nuevoalias", function() {
+        seleccionado = []
+        $('input[name="seleccionacampos"]').each(function(){
+            if ($(this).is(":checked")){
+                seleccionado.push($(this).val());
+            }
+        });
+        //Alias
+        columnas = "";
+        for (var i = 0; i < seleccionado.length; i++) {
+            columnas += seleccionado[i]+" ";
+            if($("input[alias='"+seleccionado[i]+"']").val() != ""){
+                columnas += "AS '"+$("input[alias='"+seleccionado[i]+"']").val()+"' "
+            }
+            columnas += ","
+        }
+        columnas = columnas.slice(0, -1);
+        resultadostabla()
+
+        resultadostabla();
+    })
     $("#limite").change(function(){
         limite = " LIMIT "+$(this).val()+" ";
         resultadostabla()
