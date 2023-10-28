@@ -21,12 +21,24 @@ $(document).ready(function(){
             }
         });
         console.table(seleccionado)
+        
         columnas = "";
         for (var i = 0; i < seleccionado.length; i++) {
-            columnas += seleccionado[i]+",";
+            columnas += seleccionado[i]+" ";
+            if($("input[alias='"+seleccionado[i]+"']").val() != ""){
+                columnas += "AS '"+$("input[alias='"+seleccionado[i]+"']").val()+"' "
+            }
+            columnas += ","
         }
         columnas = columnas.slice(0, -1);
         resultadostabla()
+        // Alias
+        $("#seleccionaalias").html("")
+        for (var i = 0; i < seleccionado.length; i++) {
+            $("#seleccionaalias").append('<div class="alias">'+seleccionado[i]+
+            '= <input type="text" name="" class="nuevoalias" alias="'+seleccionado[i]+'" campo="'+seleccionado[i]+'"></div>');
+        }
+        //Condiciones
         $("#seleccionacondiciones").html("")
         for (var i = 0; i < seleccionado.length; i++) {
             $("#seleccionacondiciones").append('<div class="condicion">'+seleccionado[i]+

@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "registros", "registros", "registros");
+include "config.php";
 
 $sql = "SHOW COLUMNS FROM ".$_GET['tabla'];
 

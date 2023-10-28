@@ -1,6 +1,6 @@
 <?php
 
-$mysqli = new mysqli("localhost", "registros", "registros", "registros");
+include "config.php";
 
 
 $sql = $_GET['sql']."";
@@ -15,8 +15,8 @@ echo '<p>La busqueda a devuelto '.$contador.' resultados</p>';
 <table colpadding = 0 colspacing=0 cellpadding=0 cellspacing=0 width=100% >
 
 <?php
-$mysqli = new mysqli("localhost", "registros", "registros", "registros");
 
+include "config.php";
 
 $sql = $_GET['sql']."";
 $result = $mysqli -> query($sql);
