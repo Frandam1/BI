@@ -4,6 +4,7 @@ var desde = " FROM ";
 var tabla = "";
 var condiciones = " ";
 var limite = " LIMIT 1000 ";
+var ordenar = " "
 
 $(document).ready(function(){
     $("#seleccionatabla").load("php/cargatablas.php");
@@ -12,6 +13,23 @@ $(document).ready(function(){
         tabla = $(this).val();
         resultadostabla()
         $("#seleccionacampos").load("php/cargacampos.php?tabla=" + tabla);
+        $("#seleccionaordenar").load("php/cargaordenar.php?tabla=" + tabla);
+    })
+    $("#seleccionaordenar").change(function(){
+        seleccionado = []
+        $('input[name="seleccionaordenar"]').each(function(){
+            if ($(this).is(":checked")){
+                seleccionado.push($(this).val());
+            }
+        })
+        ordenar = " ORDER BY ";
+        for (var i = 0; i < seleccionado.length; i++) {
+            ordenar += seleccionado[i]+","
+        }
+        ordenar = ordenar.slice(0, -1);
+        ordenar += " "
+        //console.log(ordenar)
+        resultadostabla()
     })
     $("#seleccionacampos").change(function(){
         seleccionado = []
@@ -88,9 +106,10 @@ $(document).ready(function(){
 
 function resultadostabla(){
     if(tabla){
-        $("#sql").text(peticion+columnas+desde+tabla+condiciones+limite)
+        sentencia = peticion+columnas+desde+tabla+condiciones+ordenar+limite
+        $("#sql").text(sentencia)
         $("#resultadostabla").
-        load("php/resultadostabla.php?sql="+encodeURI(peticion+columnas+desde+tabla+condiciones+limite))
+        load("php/resultadostabla.php?sql="+encodeURI(sentencia))
     } else {
         $("#sql").text("No se ha seleccionado una tabla.");
         $("#resultadostabla").empty(); // Limpia el contenido

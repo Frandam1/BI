@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
-    </script>
-     <script src="js/codigo.js"></script>
-     <link rel="stylesheet" href="css/estilo.css">
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+        </script>
+    <script src="js/codigo.js"></script>
+    <link rel="stylesheet" href="css/estilo.css">
     <meta charset="UTF-8">
     <title>BI</title>
-    
+
 </head>
+
 <body>
     <div id="contenedor">
-        <div id="selecciontabla">
-            <h1>1- Seleccion de la tabla</h1>
-            <p>Selecciona la tabla con la que trabajar</p>
-            <select id="seleccionatabla">
-                <option value="">Tabla</option>
-            </select>
-        </div>
-        <div id="seleccioncampos">
-            <h1>2- Seleccion de los campos</h1>
-            <p>Selecciona los campos con los que trabajar</p>
-            <div id="seleccionacampos">
-                
+        <div id="formulario">
+            <div id="selecciontabla">
+                <h1>1- Seleccion de la tabla</h1>
+                <p>Selecciona la tabla con la que trabajar</p>
+                <select id="seleccionatabla">
+                    <option value="">Tabla</option>
+                </select>
+            </div>
+            <div id="seleccioncampos">
+                <h1>2- Seleccion de los campos</h1>
+                <p>Selecciona los campos con los que trabajar</p>
+                <div id="seleccionacampos">
+
+                </div>
+            </div>
+            <div id="seleccionordenar">
+                <h1>3- Seleccion de los campos en base a los cuales ordenar</h1>
+                <p>Selecciona los campos con los que trabajar</p>
+                <div id="seleccionaordenar">
+
+                </div>
+            </div>
+            <div id="seleccioncondiciones">
+                <h1>4- Seleccion de las condiciones</h1>
+                <p>Selecciona los campos con condiciones</p>
+                <div id="seleccionacondiciones">
+
+                </div>
+            </div>
+            <div id="seleccionalias">
+                <h1>5- Seleccion de los alias para los campos</h1>
+                <p>Selecciona los alias para los campos</p>
+                <table id="seleccionaalias">
+
+                </table>
+            </div>
+            <div id="seleccionlimite">
+                <h1>6- Seleccion del limite de resultados</h1>
+                <p>Selecciona el limite de los campos</p>
+                <input type="number" id="limite">
             </div>
         </div>
-        <div id="seleccioncondiciones">
-            <h1>3- Seleccion de las condiciones</h1>
-            <p>Selecciona los campos con condiciones</p>
-            <div id="seleccionacondiciones">
-                
-            </div>
+        <div id="resultados">
+            <div id="sql"></div>
+            <div id="resultadostabla"></div>
+            <div id="resultadosgrafica"></div>
         </div>
-        <div id="seleccionalias">
-            <h1>4- Seleccion de los alias para los campos</h1>
-            <p>Selecciona los alias para los campos</p>
-            <table id="seleccionaalias">
-                
-            </table>
-        </div>
-        <div id="seleccionlimite">
-            <h1>5- Seleccion del limite de resultados</h1>
-            <p>Selecciona el limite de los campos</p>
-            <input type="number" id="limite">
-        </div>
-        <div id="sql"></div>
-        <div id="resultadostabla"></div>
-        <div id="resultadosgrafica"></div>
     </div>
 </body>
+
 </html>
